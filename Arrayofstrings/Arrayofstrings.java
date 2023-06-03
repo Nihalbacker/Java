@@ -1,37 +1,36 @@
-import java.util.Scanner;
-import java.util.Arrays;
-class Arrayofstrings{
-public static void main(String [] args){
-	Scanner sc=new Scanner(System.in);
-	System.out.print("Enter the no: of strings:");
-	int size=sc.nextInt();
-	String[] strings = new String[size];
-	System.out.println("Enter the strings:");
-	for(int i=0;i<size;i++){
-	strings[i]=sc.next();
-	}
-	System.out.println("Choose:\n1.Built in method\n2.User defined method");
-	System.out.println("Option:");
-	int opt=sc.nextInt();
-	  switch(opt){
-	       case 1:System.out.println("\nBuilt in method:");
-		      Arrays.sort(strings);
-		      break;
-	       case 2:System.out.println("\nUser defined method:");
-		      String temp;
-		        for(int i=0;i<size;i++){
-			  for(int j=i+1;j<size;j++){
-		            if(strings[i].compareTo(strings[j])>0){
-			     		temp=strings[i];
-					strings[i]=strings[j];
-					strings[j]=temp;
-				}
-			    break;
+import java.util.*;
+class ArraySort{
+public static void main(String[] args){
+Scanner s=new Scanner(System.in);
+System.out.print("Enter size of array: ");
+int size=s.nextInt();
+String[] a=new String[size];
+System.out.println("\nEnter Elemenets of Array: ");
+for(int i=0;i<size;i++){
+a[i]=s.next();
 }
+System.out.println("\n\nChoose an option from the below\n1.Sorting using built-in Function\n2.Sorting using user-defined Function\n");
+System.out.print("\nEnter your option: ");
+int opt=s.nextInt();
+switch(opt){
+case 1:Arrays.sort(a);
+       break;
+case 2:for(int i = 0; i<size; i++){  
+       for (int j = i+1; j<size; j++){  
+       if(a[i].compareTo(a[j])>0){  
+              String temp = a[i];  
+              a[i] = a[j];  
+              a[j] = temp;  
+           }
+           } 
+           }
+         break;
+default:System.out.println("\nEnter a valid option");
 }
-}
-   for (int i=0;i<size;i++){
- 	System.out.println(strings[i]);
+System.out.println("\n\nSorted Array: ");
+for(int i=0;i<size;i++)
+{
+System.out.println(a[i]);
 }
 }
 }
